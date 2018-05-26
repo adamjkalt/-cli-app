@@ -1,24 +1,23 @@
 class UpcomingNintendoSwitchGames::CLI
 
 def call
+  # puts "Do You Want to See a List of Upcoming Nintendo Switch Games?"
+  # puts "Choose the Number Corresponding to your choice."
+  # puts "1. See List of Games"
+  # puts "2. Quit"
+  # input = gets.strip
+  # if input = "1" || "1."
   list_games
   menu
   goodbye
 end
 
 def list_games
-  puts "Do You Want to See a List of Upcoming Nintendo Switch Games?"
-  puts "Choose the Number Corresponding to your choice."
-  puts "1. See List of Games"
-  puts "2. Quit"
-  input = gets.strip
-  if input = "1" || "1."
   puts "Upcoming Nintendo Switch Games"
-  puts "1. Yoku's Island Express - May 29"
-  puts "2. Harvest Moon: Light of Hope - May 29"
-  puts "3. Street Fighter: 30th Anniversary Collection - May 29"
+  @games = UpcomingNintendoSwitchGames::Game.today\
+  @games.each.with_index(1) do |game, i|
+    puts "#{i}. #{game.name} - #{game.release_date}"
 end
-@games = UpcomingNintendoSwitchGames::Game.today
 end
 
 def menu
@@ -27,6 +26,8 @@ def menu
   input = nil
   while input != "QUIT"
     input = gets.strip.downcase
+    if input.to_i > 0
+      puts @games[input.to_i - 1]
     case input
     when "1"
       puts "More info on 1..."
