@@ -14,9 +14,9 @@ def list_games
   input = gets.strip
   if input = "1" || "1."
   puts "Upcoming Nintendo Switch Games"
-  puts "1. Yoku's Island Express"
-  puts "2. Harvest Moon: Light of Hope"
-  puts "3. Street Fighter: 30th Anniversary Collection"
+  puts "1. Yoku's Island Express - May 29"
+  puts "2. Harvest Moon: Light of Hope - May 29"
+  puts "3. Street Fighter: 30th Anniversary Collection - May 29"
 end
 @games = UpcomingNintendoSwitchGames::Game.today
 end
