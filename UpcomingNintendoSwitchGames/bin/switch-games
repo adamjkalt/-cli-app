@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/UpcomingNintendoSwitchGames'
+require "bundler/setup"
+require "UpcomingNintendoSwitchGames"
+# require './lib/UpcomingNintendoSwitchGames'
+
 UpcomingNintendoSwitchGames::CLI.new.call

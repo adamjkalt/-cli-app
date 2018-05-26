@@ -1,10 +1,9 @@
 class UpcomingNintendoSwitchGames::Game
 
+attr_accessor :name, :release_date, :url
+
   def self.today
     # I should return a bunch of instances of games
-    puts "1. Yoku's Island Express - May 29"
-    puts "2. Harvest Moon: Light of Hope - May 29"
-    puts "3. Street Fighter: 30th Anniversary Collection - May 29"
 
     game_1 = self.new
     game_1.name = "Yoku's Island Express"
@@ -20,4 +19,6 @@ class UpcomingNintendoSwitchGames::Game
     game_3.name = "Street Fighter: 30th Anniversary Collection"
     game_3.release_date = "May 29"
     game_3.url = "http://www.metacritic.com/game/switch/street-fighter-30th-anniversary-collection"
+
+    [game_1, game_2, game_3]
   end
