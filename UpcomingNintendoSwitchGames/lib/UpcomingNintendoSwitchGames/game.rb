@@ -7,10 +7,11 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
   end
 
   def self.scrape_games
+    games = []
     # go to metacritic, find game
     # extrac the properties
     # instantiate the game
-    # [games]
+    games
   end
 
 
