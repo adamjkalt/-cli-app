@@ -1,6 +1,6 @@
 class UpcomingNintendoSwitchGames::Game
 
-attr_accessor :name, :release_date, :url
+attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
 
   def self.today
     # I should return a bunch of instances of games
