@@ -18,10 +18,9 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
   end
 
 def self.scrape_metacritic
-  # doc = Nokogiri::HTML(open("https://www.google.com/"))
   Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
-  # binding.pry
+  binding.pry
 end
 end
 
