@@ -33,24 +33,25 @@ def menu
       the_game = @games[input.to_i - 1]
       puts "#{the_game.name} - #{the_game.release_date} -
       #{the_game.developer} - #{the_game.genre} - #{the_game.rating} -
-      #{the_game.summary}
-    case input
-    when "1"
-      puts "More info on 1..."
-    when "2"
-      puts "More info on 2..."
-    when "3"
-      puts "More info on 3..."
-    else
-      puts "There is no game corresponding with that number.  Please try again
-      or enter 'QUIT' to exit this program."
-    end
+      #{the_game.summary}"
+      # case input
+      # when "1"
+      #   puts "More info on 1..."
+      # when "2"
+      #   puts "More info on 2..."
+      # when "3"
+      #   puts "More info on 3..."
+      # else
+      #   puts "There is no game corresponding with that number.  Please try again
+      #   or enter 'QUIT' to exit this program."
+      # end
   end
 end
-
-
-def goodbye
-  puts "Thanks for your interest in Upcoming Nintendo Switch Games."
 end
+
+
+# def goodbye
+#   puts "Thanks for your interest in Upcoming Nintendo Switch Games."
+# end
 
 end
