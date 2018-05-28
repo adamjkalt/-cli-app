@@ -1,19 +1,5 @@
 class Scraper
 
-  def self.scrape_metacritic
-    doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
-    ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
-    games = []
-    doc.css('div.product_wrap').text.each do |game|
-      name = game.css('div.product_title').text
-      release_date = game.css('li.stat.release_date').text
-      games << {name: name, release_date: release_date}
-    end
-    games
-  end
-
-  end
-  end
   def self.scrape_index_page(index_url)
     html = open(index_url)
     students = []
