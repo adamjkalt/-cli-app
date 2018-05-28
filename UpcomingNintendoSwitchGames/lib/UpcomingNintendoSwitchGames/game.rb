@@ -17,12 +17,18 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
     games
   end
 
-def self.scrape_metacritic
-  doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
-  ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
-  binding.pry
-end
-end
+  def self.scrape_metacritic
+    doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
+    ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
+    games = []
+    doc.css('div.product_wrap').each do |game|
+      name = game.css('div.product_title').text
+      release_date = game.css('li.stat.release_date').text
+      games << {name: name, release_date: release_date}
+    end
+    games
+  end
+  # Method is finding games and release dates - need to fix formatting
 
 # game_1 = self.new
 # game_1.name = "Yoku's Island Express"
@@ -40,3 +46,5 @@ end
 # game_3.url = "http://www.metacritic.com/game/switch/street-fighter-30th-anniversary-collection"
 #
 # [game_1, game_2, game_3]
+
+end
