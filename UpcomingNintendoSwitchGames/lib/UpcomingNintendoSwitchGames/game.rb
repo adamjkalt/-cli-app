@@ -34,7 +34,6 @@ def self.scrape_game
   profile = Nokogiri::HTML(open("http://www.metacritic.com/game/switch/yokus-island-express",
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
   game_info = []
-  binding.pry
   profile.css('div.layout').each do |the_game|
     name = the_game.css('div.product_title').text
     release_date = the_game.css('li.summary_detail.release_date').text
@@ -44,6 +43,7 @@ def self.scrape_game
     game_info << {name: name, release_date: release_date, developer: developer,
     genre: genre, summary: summary}
 end
+binding.pry
 game_info
 end
 
