@@ -31,9 +31,18 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
   # Method is finding games and release dates - need to fix formatting
 
 def self.scrape_game
-  doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
+  profile = Nokogiri::HTML(open("http://www.metacritic.com/game/switch/yokus-island-express",
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
+  game_info = []
   binding.pry
+  profile.css().each do |the_game|
+    name =
+    release_date =
+    developer =
+    genre =
+    rating =
+    summary =
+end
 end
 
 
