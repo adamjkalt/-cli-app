@@ -35,14 +35,16 @@ def self.scrape_game
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
   game_info = []
   binding.pry
-  profile.css().each do |the_game|
-    name =
-    release_date =
-    developer =
-    genre =
-    rating =
-    summary =
+  profile.css('div.layout').each do |the_game|
+    name = the_game.css('div.product_title').text
+    release_date = the_game.css('li.summary_detail.release_date').text
+    developer = the_game.css('li.summary_detail.developer').text
+    genre = the_game.css('li.summary_detail.product_genre').text
+    summary = the_game.css('li.summary_detail.product_summary').text
+    game_info << {name: name, release_date: release_date, developer: developer,
+    genre: genre, summary: summary}
 end
+game_info
 end
 
 
