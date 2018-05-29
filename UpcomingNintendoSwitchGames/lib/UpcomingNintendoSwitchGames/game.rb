@@ -22,13 +22,12 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
     ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
     games = []
     doc.css('div.product_wrap').each do |game|
-      name = game.css('div.product_title').text
-      release_date = game.css('li.stat.release_date').text
+      name = game.css('div.product_title').text.gsub(/\s+/, " ")
+      release_date = game.css('li.stat.release_date').text.gsub(/\s+/, " ")
       games << {name: name, release_date: release_date}
     end
     games
   end
-  # Method is finding games and release dates - need to fix formatting
 
 def self.scrape_game
   profile = Nokogiri::HTML(open("http://www.metacritic.com/game/switch/yokus-island-express",
