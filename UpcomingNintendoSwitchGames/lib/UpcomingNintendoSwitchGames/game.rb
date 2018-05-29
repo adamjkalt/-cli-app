@@ -43,7 +43,6 @@ def self.scrape_game
     game_info << {name: name, release_date: release_date, developer: developer,
     genre: genre, summary: summary}
 end
-binding.pry
 game_info
 end
 
