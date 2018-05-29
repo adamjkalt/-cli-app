@@ -1,15 +1,8 @@
 class UpcomingNintendoSwitchGames::CLI
 
-  attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
-
+  attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary, :games
 
 def call
-  # puts "Do You Want to See a List of Upcoming Nintendo Switch Games?"
-  # puts "Choose the Number Corresponding to your choice."
-  # puts "1. See List of Games"
-  # puts "2. Quit"
-  # input = gets.strip
-  # if input = "1" || "1."
   list_games
   menu
   goodbye
@@ -17,8 +10,8 @@ end
 
 def list_games
   puts "Upcoming Nintendo Switch Games"
-  @games = UpcomingNintendoSwitchGames::Game.today
-  @games.each.with_index(1) do |game, i|
+  @games = Game.today
+  @games.each_with_index(1) do |game, i|
     puts "#{i}. #{game.name} - #{game.release_date}"
 end
 end

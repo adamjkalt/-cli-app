@@ -5,17 +5,17 @@ class Game
 attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
 
   def self.today
-    self.scrape_games
+    self.scrape_metacritic
   end
 
-  def self.scrape_games
-    games = []
-    games << self.scrape_metacritic
-    # go to metacritic, find game
-    # extrac the properties
-    # instantiate the game
-    games
-  end
+  # def self.scrape_games
+  #   games = []
+  #   games << self.scrape_metacritic
+  #   # go to metacritic, find game
+  #   # extrac the properties
+  #   # instantiate the game
+  #   games
+  # end
 
   def self.scrape_metacritic
     doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
@@ -27,7 +27,6 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
       url = game.css('div.product_title a')[0]["href"]
       games << {name: name, release_date: release_date, url: url}
     end
-    binding.pry
     games
   end
 
