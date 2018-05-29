@@ -34,3 +34,5 @@ student
 end
 
 end
+
+gsub(/\n/," ")

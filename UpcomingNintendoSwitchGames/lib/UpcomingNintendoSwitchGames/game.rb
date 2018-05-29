@@ -35,11 +35,11 @@ def self.scrape_game
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
   game_info = []
   profile.css('div.layout').each do |the_game|
-    name = the_game.css('div.product_title').text
-    release_date = the_game.css('li.summary_detail.release_date').text
-    developer = the_game.css('li.summary_detail.developer').text
-    genre = the_game.css('li.summary_detail.product_genre').text
-    summary = the_game.css('li.summary_detail.product_summary').text
+    name = the_game.css('div.product_title').text.gsub(/\s+/, " ")
+    release_date = the_game.css('li.summary_detail.release_data').text.gsub(/\s+/, " ")
+    developer = the_game.css('li.summary_detail.developer').text.gsub(/\s+/, " ")
+    genre = the_game.css('li.summary_detail.product_genre').text.gsub(/\s+/, " ")
+    summary = the_game.css('li.summary_detail.product_summary').text.gsub(/\s+/, " ")
     game_info << {name: name, release_date: release_date, developer: developer,
     genre: genre, summary: summary}
 end
