@@ -36,3 +36,6 @@ end
 end
 
 gsub(/\n/," ")
+
+>> doc.xpath('//div[@id="block"]/a/@href').first.
+href = doc.css('#block a')[0]["href"]

@@ -24,8 +24,10 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
     doc.css('div.product_wrap').each do |game|
       name = game.css('div.product_title').text.gsub(/\s+/, " ")
       release_date = game.css('li.stat.release_date').text.gsub(/\s+/, " ")
-      games << {name: name, release_date: release_date}
+      url = game.css('div.product_title a')[0]["href"]
+      games << {name: name, release_date: release_date, url: url}
     end
+    binding.pry
     games
   end
 
