@@ -16,16 +16,18 @@ def list_games
 end
 
 def menu
+  # Need to scrape actual game and return data
   input = nil
   while input != "QUIT"
     puts "Choose the Number Corresponding to the Game of your choice."
     puts "Enter 'QUIT' to quit this program"
     input = gets.strip.downcase
     if input.to_i > 0
-      the_game = @games[input.to_i - 1]
-      puts "#{the_game.name} - #{the_game.release_date} -
-      #{the_game.developer} - #{the_game.genre} - #{the_game.rating} -
-      #{the_game.summary}"
+      the_game = @games[input.to_i - 1][:url]
+      Game.scrape_game(the_game)
+      puts "#{the_game[:name]} - #{the_game[:release_date]} -
+      #{the_game[:developer]} - #{the_game[:genre]} -
+      #{the_game[:summary]}"
       # case input
       # when "1"
       #   puts "More info on 1..."
@@ -42,8 +44,8 @@ end
 end
 
 
-# def goodbye
-#   puts "Thanks for your interest in Upcoming Nintendo Switch Games."
-# end
+def goodbye
+  puts "Thanks for your interest in Upcoming Nintendo Switch Games."
+end
 
 end
