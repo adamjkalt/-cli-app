@@ -30,8 +30,9 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
     games
   end
 
-def self.scrape_game
-  profile = Nokogiri::HTML(open("http://www.metacritic.com/game/switch/yokus-island-express",
+def self.scrape_game(url)
+  url = "http://www.metacritic.com" + url
+  profile = Nokogiri::HTML(open(url,
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
   game_info = []
   profile.css('div.layout').each do |the_game|

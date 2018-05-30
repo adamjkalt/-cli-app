@@ -18,27 +18,18 @@ end
 def menu
   # Need to scrape actual game and return data
   input = nil
-  while input != "QUIT"
+  while input != "exit"
     puts "Choose the Number Corresponding to the Game of your choice."
-    puts "Enter 'QUIT' to quit this program"
+    puts "Enter 'exit' to exit this program"
     input = gets.strip.downcase
     if input.to_i > 0
-      the_game = @games[input.to_i - 1][:url]
-      Game.scrape_game(the_game)
+      game_url = @games[input.to_i - 1][:url]
+      the_game = Game.scrape_game(game_url)[0]
       puts "#{the_game[:name]} - #{the_game[:release_date]} -
       #{the_game[:developer]} - #{the_game[:genre]} -
       #{the_game[:summary]}"
-      # case input
-      # when "1"
-      #   puts "More info on 1..."
-      # when "2"
-      #   puts "More info on 2..."
-      # when "3"
-      #   puts "More info on 3..."
-      # else
-      #   puts "There is no game corresponding with that number.  Please try again
-      #   or enter 'QUIT' to exit this program."
-      # end
+    elsif input == "exit"
+      exit
   end
 end
 end
