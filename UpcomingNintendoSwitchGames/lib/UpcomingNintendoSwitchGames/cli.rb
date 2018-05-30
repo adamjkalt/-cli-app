@@ -5,7 +5,6 @@ class UpcomingNintendoSwitchGames::CLI
 def call
   list_games
   menu
-  goodbye
 end
 
 def list_games
@@ -32,11 +31,6 @@ def menu
       exit
   end
 end
-end
-
-
-def goodbye
-  puts "Thanks for your interest in Upcoming Nintendo Switch Games."
 end
 
 end

@@ -1,5 +1,3 @@
-# class UpcomingNintendoSwitchGames::Game
-
 class Game
 
 attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
@@ -7,15 +5,6 @@ attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
   def self.today
     self.scrape_metacritic
   end
-
-  # def self.scrape_games
-  #   games = []
-  #   games << self.scrape_metacritic
-  #   # go to metacritic, find game
-  #   # extrac the properties
-  #   # instantiate the game
-  #   games
-  # end
 
   def self.scrape_metacritic
     doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",

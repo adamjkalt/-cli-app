@@ -24,4 +24,4 @@ Shows a List of Games
 
 Which Game Do You Want to Learn More About?  
 Choose the Number Corresponding to the Game.
-Enter "quit" to exit program.
+Enter "exit" to exit program.
