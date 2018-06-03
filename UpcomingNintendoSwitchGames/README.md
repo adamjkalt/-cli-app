@@ -10,7 +10,7 @@ Installation
  in git@github.com:adamjkalt/Upcoming_Nintendo_Switch_Games_cli_app.git.
 
 How to use?
-To use the app, user needs to type in ruby/bin switch-games into their terminal,
+To use the app, user needs to type in rubybin/switch-games into their terminal,
 in order to access the CLI App.
 
 Contribute
