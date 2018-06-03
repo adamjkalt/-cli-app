@@ -6,18 +6,20 @@ Switch.  The Application provides all the info in list form, and allows the user
 to learn more about each title if they so choose.
 
 Installation
-Provide step by step series of examples and explanations about how to get a development env running.
+ In order to install the app, the user just needs to type in git clone, and copy
+ in git@github.com:adamjkalt/Upcoming_Nintendo_Switch_Games_cli_app.git.
 
 How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+To use the app, user needs to type in ruby/bin switch-games into their terminal,
+in order to access the CLI App.
 
 Contribute
-Let people know how they can contribute into your project. A contributing guideline will be a big plus.
+In order to contribute, simply clone the repository into your terminal, and feel
+free to add features to this.
 
 Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
+Credit goes to myself, Adam Kalt, for designing the CLI App, as well as to
+http://www.metacritic.com for their database.
 
 License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © Yourname
+MIT © Adam Kalt
