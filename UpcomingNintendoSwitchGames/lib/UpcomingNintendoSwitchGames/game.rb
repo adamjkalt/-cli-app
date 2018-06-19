@@ -40,13 +40,12 @@ def initialize(name:, release_date:, url:, developer:, genre:, summary:)
       release_date = game.css('li.stat.release_date').text.gsub(/\s+/, " ")
       url = game.css('div.product_title a')[0]["href"]
       games << {name: name, release_date: release_date, url: url}
-      # self.save
     end
     games
   end
 
-def self.scrape_game(game)
-  url = "http://www.metacritic.com" + game.url
+def self.scrape_game(url)
+  url = "http://www.metacritic.com" + url
   profile = Nokogiri::HTML(open(url,
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
   game_info = []
@@ -58,7 +57,6 @@ def self.scrape_game(game)
     summary = the_game.css('li.summary_detail.product_summary').text.gsub(/\s+/, " ")
     game_info << {name: name, release_date: release_date, developer: developer,
     genre: genre, summary: summary}
-    # self.save
 end
 game_info
 end
