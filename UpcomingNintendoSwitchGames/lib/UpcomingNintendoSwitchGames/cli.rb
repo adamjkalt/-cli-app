@@ -9,9 +9,10 @@ end
 
 def list_games
   puts "Upcoming Nintendo Switch Games"
-  @games = Game.today
+  # @games = Game.today
+  @@all = Game.today
   # binding.pry
-  @games.each_with_index {|game, index| puts "#{index + 1}. #{game[:name]} - #{game[:release_date]}"}
+  # @games.each_with_index {|game, index| puts "#{index + 1}. #{game[:name]} - #{game[:release_date]}"}
 end
 
 def menu
