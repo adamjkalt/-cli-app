@@ -13,6 +13,20 @@ def initialize(name:, release_date:, url:, developer:, genre:, summary:)
     @summary = summary
   end
 
+  def self.all
+      @@all
+  end
+
+  def save
+    @@all << self
+  end
+
+  def self.create(name)
+    game = self.new(name)
+    @@all << game
+    game
+  end
+
   def self.today
     self.scrape_metacritic
   end
