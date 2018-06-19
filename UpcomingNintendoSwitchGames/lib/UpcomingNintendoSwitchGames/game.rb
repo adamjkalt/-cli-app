@@ -1,6 +1,17 @@
 class Game
 
-attr_accessor :name, :release_date, :url, :developer, :genre, :rating, :summary
+attr_accessor :name, :release_date, :url, :developer, :genre, :summary
+
+@@all = []
+
+def initialize(name:, release_date:, url:, developer:, genre:, summary:)
+    @name = name
+    @release_date = release_date
+    @url = url
+    @developer = developer
+    @genre = genre
+    @summary = summary
+  end
 
   def self.today
     self.scrape_metacritic
