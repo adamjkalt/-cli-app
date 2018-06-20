@@ -31,13 +31,11 @@ def initialize(name, release_date, url)
   def self.scrape_metacritic
     doc = Nokogiri::HTML(open("http://www.metacritic.com/browse/games/release-date/coming-soon/switch/date",
     ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
-    games = []
     doc.css('div.product_wrap').each do |game|
       name = game.css('div.product_title').text.gsub(/\s+/, " ")
       release_date = game.css('li.stat.release_date').text.gsub(/\s+/, " ")
       url = game.css('div.product_title a')[0]["href"]
       new_game = Game.create(name, release_date, url)
-      # games << {name: name, release_date: release_date, url: url}
     end
 Game.all
 end
@@ -46,7 +44,6 @@ def self.scrape_game(game)
   url = "http://www.metacritic.com" + game.url
   profile = Nokogiri::HTML(open(url,
   ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'safari'))
-  game_info = []
   profile.css('div.layout').each do |the_game|
     game.name = the_game.css('div.product_title').text.gsub(/\s+/, " ")
     game.release_date = the_game.css('li.summary_detail.release_data').text.gsub(/\s+/, " ")
