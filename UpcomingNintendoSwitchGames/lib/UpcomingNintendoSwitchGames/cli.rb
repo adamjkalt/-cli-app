@@ -10,7 +10,7 @@ end
 def list_games
   puts "Upcoming Nintendo Switch Games"
   @games = Game.today
-  @games.each_with_index {|game, index| puts "#{index + 1}. #{game[:name]} - #{game[:release_date]}"}
+  @games.each_with_index {|game, index| puts "#{index + 1}. #{game.name} - #{game.release_date}"}
 end
 
 def menu
@@ -20,11 +20,11 @@ def menu
     puts "Enter 'exit' to exit this program"
     input = gets.strip.downcase
     if input.to_i > 0
-      game_url = @games[input.to_i - 1][:url]
-      the_game = Game.scrape_game(game_url)[0]
-      puts "#{the_game[:name]} - #{the_game[:release_date]} -
-      #{the_game[:developer]} - #{the_game[:genre]} -
-      #{the_game[:summary]}"
+      game = @games[input.to_i - 1]
+      the_game = Game.scrape_game(game)
+      puts "#{the_game.name} - #{the_game.release_date} -
+      #{the_game.developer} - #{the_game.genre} -
+      #{the_game.summary}"
     elsif input == "exit"
       exit
   end
